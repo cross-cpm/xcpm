@@ -1,0 +1,11 @@
+# 来源
+source:
+  -
+    git: https://github.com/libjpeg-turbo/libjpeg-turbo.git
+
+# 构建命令
+build:
+  -
+    os: linux
+    type: cmake
+    command:

@@ -1,0 +1,5 @@
+toolchains:
+
+dependencies:
+  libjpeg-turbo:
+    version: 2.0.2
