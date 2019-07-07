@@ -21,9 +21,8 @@ func main() {
 	//log.SetFlags(0)
 
 	var (
-		pkgfile = "package.yaml"
-		cmd     string
-		subcmd  string
+		cmd    string
+		subcmd string
 	)
 
 	if len(os.Args) > 1 {
@@ -36,7 +35,9 @@ func main() {
 
 	switch cmd {
 	case "init":
-		log.Println(pkgfile, cmd, subcmd)
+		log.Println(cmd, subcmd)
+	case "update":
+		doCliUpdate()
 	default:
 		dumpUsage()
 	}
