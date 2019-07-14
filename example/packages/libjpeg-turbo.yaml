@@ -2,9 +2,6 @@
 source:
   -
     git: https://github.com/libjpeg-turbo/libjpeg-turbo.git
-  # -
-  #   url: xxxx
-  #   version: [0, 1.9.9]
 
 # 构建命令
 build:

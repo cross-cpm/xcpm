@@ -1,0 +1,13 @@
+# 来源
+source:
+  -
+    version: [3.1.4, 3.1.4]
+    url: http://ffmpeg.org/releases/ffmpeg-3.1.4.tar.xz
+
+# 构建命令
+build:
+  -
+    os: linux
+    type: autoconf
+    command:
+

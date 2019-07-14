@@ -15,3 +15,10 @@ xcpm init
 ```shell
 xcpm update <name>
 ```
+
+相当于
+
+```shell
+xcpm download <name>
+xcpm build <name>
+```
