@@ -21,8 +21,9 @@ func main() {
 	//log.SetFlags(0)
 
 	var (
-		cmd    string
-		subcmd string
+		err  error
+		cmd  string
+		arg2 string
 	)
 
 	if len(os.Args) > 1 {
@@ -30,15 +31,19 @@ func main() {
 	}
 
 	if len(os.Args) > 2 {
-		subcmd = os.Args[2]
+		arg2 = os.Args[2]
 	}
 
 	switch cmd {
-	case "init":
-		log.Println(cmd, subcmd)
+	case "download":
+		err = doCliDownload(arg2)
 	case "update":
-		doCliUpdate()
+		err = doCliUpdate()
 	default:
 		dumpUsage()
+	}
+
+	if err != nil {
+		log.Fatal(err)
 	}
 }

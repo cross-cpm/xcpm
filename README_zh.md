@@ -1,13 +1,24 @@
-EN | [中文](README_zh.md)
+[EN](README.md) | 中文
 
-xcpm is a c/c++ packages management for cross-building.
+支持跨平台多工具链交叉编译的包管理器
 
-## Qiuck Start
+## 快速开始
+
+创建 package.yaml
 
 ```shell
 xcpm init
 ```
 
+更新依赖的软件包
+
 ```shell
 xcpm update <name>
+```
+
+相当于
+
+```shell
+xcpm download <name>
+xcpm build <name>
 ```
