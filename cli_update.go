@@ -17,8 +17,8 @@ func doCliDownload(pkgName string) error {
 		return err
 	}
 
-	pd := GetPackageDownloader()
-	err = pd.Download(si)
+	pd := NewPackageDownloader(si)
+	err = pd.Download(di.Version)
 	if err != nil {
 		return err
 	}
