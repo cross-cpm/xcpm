@@ -37,6 +37,8 @@ func main() {
 	switch cmd {
 	case "download":
 		err = doCliDownload(arg2)
+	case "build":
+		err = doCliBuild(arg2)
 	case "update":
 		err = doCliUpdate()
 	default:

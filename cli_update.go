@@ -26,6 +26,10 @@ func doCliDownload(pkgName string) error {
 	return nil
 }
 
+func doCliBuild(pkgName string) error {
+	return nil
+}
+
 func doCliUpdate() error {
 	pkgName := "libjpeg-turbo"
 	pkgLib := NewPackageManager(pkgName)

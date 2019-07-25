@@ -9,3 +9,5 @@ build:
     os: linux
     type: cmake
     command:
+    # cmake --DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake
+

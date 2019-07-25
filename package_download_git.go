@@ -27,7 +27,7 @@ func (d *packageGitDownloader) Download(version string) error {
 		return nil
 	}
 
-	err = shell_run("git", "clone", "--depth", "1", d.url, path)
+	err = shell_run("git", "clone", "--depth", "1", "-b", version, d.url, path)
 	if err != nil {
 		return err
 	}
