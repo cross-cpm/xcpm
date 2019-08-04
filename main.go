@@ -38,7 +38,8 @@ func main() {
 	case "download":
 		err = doCliDownload(arg2)
 	case "build":
-		err = doCliBuild(arg2)
+		toolchain := ""
+		err = doCliBuild(arg2, toolchain)
 	case "update":
 		err = doCliUpdate()
 	default:

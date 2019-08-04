@@ -13,12 +13,12 @@ xcpm init
 更新依赖的软件包
 
 ```shell
-xcpm update <name>
+xcpm update <name> [-t <toolchain>]
 ```
 
 相当于
 
 ```shell
 xcpm download <name>
-xcpm build <name>
+xcpm build <name> [-t <toolchain>]
 ```
