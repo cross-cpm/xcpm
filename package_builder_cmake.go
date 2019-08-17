@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 )
 
 type packageCMakeBuiler struct {
@@ -10,22 +9,22 @@ type packageCMakeBuiler struct {
 	buildInfo *PackageBuildInfo
 }
 
-func NewPackageCMakeBuiler(pkgName string, bi *PackageBuildInfo) *packageCMakeBuiler {
+func NewPackageCMakeBuiler(pkgName string, toolchain string, bi *PackageBuildInfo) *packageCMakeBuiler {
 	return &packageCMakeBuiler{
 		pkgName:   pkgName,
 		buildInfo: bi,
 	}
 }
 
-func (b *packageCMakeBuiler) Build(toolchain string) error {
-	log.Println("cmake build ...")
-	prefixRootPath, err := getPrefixRootPath(toolchain)
-	if err != nil {
-		return err
-	}
+func (b *packageCMakeBuiler) Build() error {
+	// log.Println("cmake build ...")
+	// prefixRootPath, err := getPrefixRootPath(toolchain)
+	// if err != nil {
+	// 	return err
+	// }
 
-	codePath := fmt.Sprintf("%s/usr/local/%s", prefixRootPath, b.pkgName)
-	log.Println("codePath:", codePath)
+	// codePath := fmt.Sprintf("%s/usr/local/%s", prefixRootPath, b.pkgName)
+	// log.Println("codePath:", codePath)
 	return nil
 }
 

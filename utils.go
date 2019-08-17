@@ -30,6 +30,23 @@ func LoadYaml(filename string, content interface{}) error {
 	return nil
 }
 
+func SaveYaml(filename string, content interface{}) error {
+	f, err := os.Create(filename)
+	if err != nil {
+		log.Println("create file failed!", filename, err)
+		return err
+	}
+	defer f.Close()
+
+	err = yaml.NewEncoder(f).Encode(content)
+	if err != nil {
+		log.Println("decode file failed!", filename, err)
+		return err
+	}
+
+	return nil
+}
+
 func FileExist(filename string) bool {
 	if _, err := os.Stat(filename); os.IsNotExist(err) {
 		return false

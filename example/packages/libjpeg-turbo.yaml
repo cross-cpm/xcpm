@@ -1,13 +1,14 @@
-# 来源
+# 来源，是一个数组，不同版本来源可能不一样
 source:
   -
     git: https://github.com/libjpeg-turbo/libjpeg-turbo.git
 
-# 构建命令
+# 构建命令，是一个数组，不同平台构建命令可能不一样
 build:
   -
-    os: linux
-    type: cmake
-    command:
-    # cmake --DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake
-
+    # os: linux
+    # type: cmake
+    command: cmake --DCMAKE_INSTALL_PREFIX=${PREFIX_ROOT}/usr/local -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN}.cmake
+  # -
+  #   os: windows
+  #   command: build.bat

@@ -7,6 +7,11 @@ import (
 
 type PackageInfo struct {
 	Source []PackageSourceInfo `yaml:"source"`
+	Build  []PackageBuildInfo  `yaml:"build"`
+}
+
+type PackageBuildInfo struct {
+	Command string `yaml:"command"`
 }
 
 type PackageSourceInfo struct {
@@ -45,11 +50,17 @@ func findPackageLibFile(name string) (string, error) {
 }
 
 func (p *packageManager) GetSourceInfo(version string) (*PackageSourceInfo, error) {
-
 	// TODO: match by version
+
 	if len(p.info.Source) > 0 {
 		return &p.info.Source[0], nil
 	}
 
 	return nil, fmt.Errorf("source not found")
+}
+
+func (p *packageManager) GetBuildInfo(version string) ([]PackageBuildInfo, error) {
+	// TODO: match by version
+
+	return p.info.Build, nil
 }

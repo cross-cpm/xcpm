@@ -54,3 +54,12 @@ func (d *packageGitDownloader) getPackagePath(version string) (string, error) {
 	log.Println("cache path:", cache_path)
 	return cache_path, nil
 }
+
+func (d *packageGitDownloader) GetCache(version string) (*CacheInfo, error) {
+	path, err := d.getPackagePath(version)
+	if err != nil {
+		return nil, err
+	}
+
+	return &CacheInfo{Type: "repo", Path: path}, nil
+}
