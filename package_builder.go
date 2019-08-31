@@ -2,6 +2,7 @@ package main
 
 type PackageBuiler interface {
 	Build() error
+	GetPath() (string, error)
 }
 
 func NewPackageBuilder(pkgName string, toolchain string, bi []PackageBuildInfo) PackageBuiler {

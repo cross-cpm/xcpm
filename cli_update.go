@@ -65,17 +65,23 @@ func doCliBuild(pkgName, toolchain string) error {
 		return err
 	}
 
-	// TODO: prepare: 源码解码（或复制）到编译工作目录
-	// pp := NewPackagePrepare(cache)
-	log.Println("cache", cache, err)
-
 	bi, err := bim.GetBuidInfo()
 	if err != nil {
 		return err
 	}
 
-	// 编译、安装
 	pb := NewPackageBuilder(pkgName, toolchain, bi)
+	buildPath, err := pb.GetPath()
+
+	// prepare: 源码解码（或复制）到编译工作目录
+	log.Println("cache", cache)
+	pp := NewPackagePrepare(cache, buildPath)
+	err = pp.Prepare()
+	if err != nil {
+		return err
+	}
+
+	// 编译、安装
 	err = pb.Build()
 	if err != nil {
 		return err
