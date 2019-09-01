@@ -2,9 +2,10 @@ github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0 h1:sDMmm+q/3+Bu
 github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0/go.mod h1:4Zcjuz89kmFXt9morQgcfYZAYZ5n8WHjt81YYWIwtTM=
 github.com/codeskyblue/go-sh v0.0.0-20190412065543-76bd3d59ff27 h1:HHUr4P/aKh4quafGxDT9LDasjGdlGkzLbfmmrlng3kA=
 github.com/codeskyblue/go-sh v0.0.0-20190412065543-76bd3d59ff27/go.mod h1:VQx0hjo2oUeQkQUET7wRwradO6f+fN5jzXgB/zROxxE=
-github.com/termie/go-shutil v0.0.0-20140729215957-bcacb06fecae h1:vgGSvdW5Lqg+I1aZOlG32uyE6xHpLdKhZzcTEktz5wM=
-github.com/termie/go-shutil v0.0.0-20140729215957-bcacb06fecae/go.mod h1:quDq6Se6jlGwiIKia/itDZxqC5rj6/8OdFyMMAwTxCs=
-gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc h1:RtQ0zdDyvsncUAPozHNm7WDrXGwUnt9KCMl8+U5TogI=
+github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc/go.mod h1:VPohcIQ6FLWAgzOT7enwtRTAvwfQBDD1v4c7mvY2s2c=
+github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc80d9f3f8d44e330a4dde59f39473 h1:44SNLvkuJ3S3YUuOUnrWogACEqxuW1vRoluRWGNdms8=
+github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc80d9f3f8d44e330a4dde59f39473/go.mod h1:VPohcIQ6FLWAgzOT7enwtRTAvwfQBDD1v4c7mvY2s2c=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
