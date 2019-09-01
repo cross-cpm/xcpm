@@ -7,8 +7,12 @@ type PackageBuiler interface {
 
 func NewPackageBuilder(pkgName string, toolchain string, bi []PackageBuildInfo) PackageBuiler {
 
-	// TODO: choose one from build info array
+	// TODO: choose one from build info array by toolchain
 	info := &bi[0]
 
-	return NewPackageCMakeBuiler(pkgName, toolchain, info)
+	if info.Type == "cmake" {
+		return NewPackageCMakeBuiler(pkgName, toolchain, info)
+	}
+
+	return nil
 }

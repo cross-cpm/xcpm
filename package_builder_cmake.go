@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+
+	"github.com/codeskyblue/go-sh"
 )
 
 type packageCMakeBuiler struct {
@@ -31,14 +34,39 @@ func (b *packageCMakeBuiler) GetPath() (string, error) {
 }
 
 func getPrefixRootPath(toolchain string) (string, error) {
-	if toolchain == "" {
-		return ".packages/prefix_root", nil
+	pwd, err := os.Getwd()
+	if err != nil {
+		return "", err
 	}
 
-	return "", fmt.Errorf("unknown prefix root path")
+	prefix := "prefix_root"
+	if toolchain != "" {
+		prefix = toolchain + "_prefix_root"
+	}
+
+	return fmt.Sprintf("%s/.packages/%s", pwd, prefix), nil
 }
 
 func (b *packageCMakeBuiler) Build() error {
 	log.Println("cmake build ...")
+
+	prefix, err := getPrefixRootPath(b.toolchain)
+	if err != nil {
+		return err
+	}
+
+	workdir, err := b.GetPath()
+	if err != nil {
+		return err
+	}
+
+	s := sh.NewSession()
+	s.ShowCMD = true
+	s.SetDir(workdir)
+	s.SetEnv("PREFIX_ROOT", prefix)
+	s.Call("bash", "-c", "cmake -DCMAKE_INSTALL_PREFIX=$PREFIX_ROOT .")
+	s.Call("make")
+	s.Call("make", "install")
+
 	return nil
 }

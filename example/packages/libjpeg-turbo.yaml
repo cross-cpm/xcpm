@@ -7,8 +7,8 @@ source:
 build:
   -
     # os: linux
-    # type: cmake
-    command: cmake --DCMAKE_INSTALL_PREFIX=${PREFIX_ROOT}/usr/local -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN}.cmake
+    type: cmake
+    # command: cmake --DCMAKE_INSTALL_PREFIX=${PREFIX_ROOT} -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN}.cmake
   # -
   #   os: windows
   #   command: build.bat

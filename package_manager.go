@@ -11,7 +11,8 @@ type PackageInfo struct {
 }
 
 type PackageBuildInfo struct {
-	Command string `yaml:"command"`
+	Type string `yaml:"type"`
+	// Command string `yaml:"command"`
 }
 
 type PackageSourceInfo struct {
