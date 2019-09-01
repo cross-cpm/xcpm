@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os/exec"
 
 	"github.com/termie/go-shutil"
 )
@@ -20,7 +21,8 @@ func NewRepoPackagePrepare(cachePath string, buildPath string) *repoPackagePrepa
 
 func (p *repoPackagePrepare) Prepare() error {
 	log.Printf("copy code from cache(%s) to build path(%s)!\n", p.cachePath, p.buildPath)
-	//shutil.RmTree(p.buildPath, nil)
+	//FIXME: use: shutil.RmTree(p.buildPath, nil)
+	exec.Command("rm", "-fr", p.buildPath).Run()
 	err := shutil.CopyTree(p.cachePath, p.buildPath, nil)
 	if err != nil {
 		return err

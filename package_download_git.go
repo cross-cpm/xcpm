@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/url"
+
+	"github.com/codeskyblue/go-sh"
 )
 
 type packageGitDownloader struct {
@@ -27,7 +29,7 @@ func (d *packageGitDownloader) Download(version string) error {
 		return nil
 	}
 
-	err = shell_run("git", "clone", "--depth", "1", "-b", version, d.url, path)
+	err = sh.Command("git", "clone", "--depth", "1", "-b", version, d.url, path).Run()
 	if err != nil {
 		return err
 	}
