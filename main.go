@@ -24,6 +24,7 @@ func main() {
 		err  error
 		cmd  string
 		arg2 string
+		arg3 string
 	)
 
 	if len(os.Args) > 1 {
@@ -34,9 +35,13 @@ func main() {
 		arg2 = os.Args[2]
 	}
 
+	if len(os.Args) > 3 {
+		arg3 = os.Args[3]
+	}
+
 	switch cmd {
 	case "download":
-		err = doCliDownload(arg2)
+		err = doCliDownload(arg2, arg3)
 	case "build":
 		toolchain := ""
 		err = doCliBuild(arg2, toolchain)

@@ -2,20 +2,12 @@ package main
 
 import "log"
 
-func doCliDownload(pkgName string) error {
-	// package.yaml 文件解析
-	lpm := GetLocalPackageManager()
-	di, err := lpm.GetDependencyInfo(pkgName)
-	//log.Println("dependency info:", di, err)
-	if err != nil {
-		return err
-	}
-
+func doCliDownload(pkgName string, pkgVersion string) error {
 	// 包描述文件加载器
 	// 当前工程: packages/<package_name>.yaml
 	// 全局: ~/.xcpm/packages/<package_name>.yaml
 	pm := NewPackageManager(pkgName)
-	si, err := pm.GetSourceInfo(di.Version)
+	si, err := pm.GetSourceInfo(pkgVersion)
 	//log.Println("package source info:", si)
 	if err != nil {
 		return err
@@ -24,18 +16,18 @@ func doCliDownload(pkgName string) error {
 	// 源码下载
 	// 下载目录: ~/.xcpm/cache/github.com/libjpeg-turbo/libjpeg-turbo.git/<tag>/
 	pd := NewPackageDownloader(si)
-	err = pd.Download(di.Version)
+	err = pd.Download(pkgVersion)
 	if err != nil {
 		return err
 	}
 
 	// 获取代码缓存信息
-	cache, err := pd.GetCache(di.Version)
+	cache, err := pd.GetCache(pkgVersion)
 	if err != nil {
 		return err
 	}
 
-	bi, err := pm.GetBuildInfo(di.Version)
+	bi, err := pm.GetBuildInfo(pkgVersion)
 	if err != nil {
 		return err
 	}
@@ -91,8 +83,17 @@ func doCliBuild(pkgName, toolchain string) error {
 }
 
 func doCliUpdate() error {
-	pkgName := "libjpeg-turbo"
-	pkgLib := NewPackageManager(pkgName)
-	log.Println(pkgLib)
+	// pkgName := "libjpeg-turbo"
+	// pkgLib := NewPackageManager(pkgName)
+	// log.Println(pkgLib)
+
+	// 	// package.yaml 文件解析
+	// 	lpm := GetLocalPackageManager()
+	// 	di, err := lpm.GetDependencyInfo(pkgName)
+	// 	//log.Println("dependency info:", di, err)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+
 	return nil
 }

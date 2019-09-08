@@ -28,7 +28,7 @@ func (b *packageCMakeBuiler) GetPath() (string, error) {
 		return "", err
 	}
 
-	codePath := fmt.Sprintf("%s/usr/local/%s", prefixRootPath, b.pkgName)
+	codePath := fmt.Sprintf("%s/usr/src/%s", prefixRootPath, b.pkgName)
 	log.Println("codePath:", codePath)
 	return codePath, nil
 }
