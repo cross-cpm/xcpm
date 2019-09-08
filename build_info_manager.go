@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+)
 
 type PackageCacheBuildInfo struct {
 	Cache *CacheInfo         `yaml:"cache"`
@@ -8,19 +12,21 @@ type PackageCacheBuildInfo struct {
 }
 
 type buildInfoManager struct {
+	path     string
 	filename string
 	info     *PackageCacheBuildInfo
 }
 
 func NewBuildInfoManager(pkgName string) *buildInfoManager {
 	return &buildInfoManager{
-		filename: fmt.Sprintf(".packages/build/%s.yaml", pkgName),
+		path:     ".packages/build/",
+		filename: fmt.Sprintf("%s.yaml", pkgName),
 	}
 }
 
 func (b *buildInfoManager) Load() error {
 	info := &PackageCacheBuildInfo{}
-	err := LoadYaml(b.filename, info)
+	err := LoadYaml(filepath.Join(b.path, b.filename), info)
 	if err != nil {
 		return err
 	}
@@ -30,8 +36,13 @@ func (b *buildInfoManager) Load() error {
 }
 
 func (b *buildInfoManager) Save(bi []PackageBuildInfo, cache *CacheInfo) error {
+	err := os.MkdirAll(b.path, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
 	// .packages/build/<package_name>.yaml
-	return SaveYaml(b.filename, &PackageCacheBuildInfo{
+	return SaveYaml(filepath.Join(b.path, b.filename), &PackageCacheBuildInfo{
 		Cache: cache,
 		Build: bi,
 	})
