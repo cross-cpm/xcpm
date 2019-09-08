@@ -46,7 +46,8 @@ func main() {
 		toolchain := ""
 		err = doCliBuild(arg2, toolchain)
 	case "update":
-		err = doCliUpdate()
+		toolchain := ""
+		err = doCliUpdate(toolchain)
 	default:
 		dumpUsage()
 	}

@@ -81,19 +81,3 @@ func doCliBuild(pkgName, toolchain string) error {
 
 	return nil
 }
-
-func doCliUpdate() error {
-	// pkgName := "libjpeg-turbo"
-	// pkgLib := NewPackageManager(pkgName)
-	// log.Println(pkgLib)
-
-	// 	// package.yaml 文件解析
-	// 	lpm := GetLocalPackageManager()
-	// 	di, err := lpm.GetDependencyInfo(pkgName)
-	// 	//log.Println("dependency info:", di, err)
-	// 	if err != nil {
-	// 		return err
-	// 	}
-
-	return nil
-}
