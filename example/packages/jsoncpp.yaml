@@ -1,0 +1,10 @@
+# 来源，是一个数组，不同版本来源可能不一样
+source:
+  -
+    pack: https://github.com/open-source-parsers/jsoncpp/archive/1.9.1.tar.gz
+    version: 1.9.1
+
+# 构建命令，是一个数组，不同平台构建命令可能不一样
+build:
+  -
+    type: cmake

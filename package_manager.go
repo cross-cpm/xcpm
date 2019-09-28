@@ -16,7 +16,9 @@ type PackageBuildInfo struct {
 }
 
 type PackageSourceInfo struct {
-	Git string `yaml:"git"`
+	Version string `yaml:"version"`
+	Git     string `yaml:"git"`
+	Pack    string `yaml:"pack"`
 }
 
 type packageManager struct {

@@ -6,6 +6,7 @@ github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc h1:RtQ0zdDyvsn
 github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc/go.mod h1:VPohcIQ6FLWAgzOT7enwtRTAvwfQBDD1v4c7mvY2s2c=
 github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc80d9f3f8d44e330a4dde59f39473 h1:44SNLvkuJ3S3YUuOUnrWogACEqxuW1vRoluRWGNdms8=
 github.com/cross-cpm/go-shutil v0.0.0-20190901123130-caa8c6cceacc80d9f3f8d44e330a4dde59f39473/go.mod h1:VPohcIQ6FLWAgzOT7enwtRTAvwfQBDD1v4c7mvY2s2c=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

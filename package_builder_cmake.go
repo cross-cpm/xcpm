@@ -60,6 +60,10 @@ func (b *packageCMakeBuiler) Build() error {
 		return err
 	}
 
+	if !FileExist(workdir) {
+		return fmt.Errorf("workdir not found!")
+	}
+
 	s := sh.NewSession()
 	s.ShowCMD = true
 	s.SetDir(workdir)

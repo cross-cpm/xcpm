@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 type CacheInfo struct {
 	Type string `yaml:"type"`
 	Path string `yaml:"path"`
@@ -11,5 +13,12 @@ type PackageDownloader interface {
 }
 
 func NewPackageDownloader(source *PackageSourceInfo) PackageDownloader {
-	return NewPackageGitDownloader(source)
+	log.Println("package source", source)
+	if source.Git != "" {
+		return NewPackageGitDownloader(source)
+	} else if source.Pack != "" {
+		return NewPackageTarDownloader(source)
+	}
+
+	return nil
 }
