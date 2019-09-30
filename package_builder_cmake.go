@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/codeskyblue/go-sh"
 )
@@ -64,11 +65,17 @@ func (b *packageCMakeBuiler) Build() error {
 		return fmt.Errorf("workdir not found!")
 	}
 
+	builddir := filepath.Join(workdir, "build-cmake-xcpm")
+	err = os.MkdirAll(builddir, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
 	s := sh.NewSession()
 	s.ShowCMD = true
-	s.SetDir(workdir)
+	s.SetDir(builddir)
 	s.SetEnv("PREFIX_ROOT", prefix)
-	s.Call("bash", "-c", "cmake -DCMAKE_INSTALL_PREFIX=$PREFIX_ROOT .")
+	s.Call("cmake", fmt.Sprintf("-DCMAKE_INSTALL_PREFIX='%s'", prefix), "..")
 	s.Call("make")
 	s.Call("make", "install")
 
