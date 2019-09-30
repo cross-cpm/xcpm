@@ -47,7 +47,11 @@ func main() {
 		err = doCliBuild(arg2, toolchain)
 	case "update":
 		toolchain := ""
-		err = doCliUpdate(toolchain)
+		if arg3 != "" {
+			err = doCliUpdate(arg3, toolchain)
+		} else {
+			err = doCliUpdateAll(toolchain)
+		}
 	default:
 		dumpUsage()
 	}

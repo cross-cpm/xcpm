@@ -1,6 +1,6 @@
 package main
 
-func doCliUpdate(toolchain string) error {
+func doCliUpdateAll(toolchain string) error {
 	// package.yaml 文件解析
 	lpm := GetLocalPackageManager()
 	dependencies, err := lpm.GetDependencies()
@@ -19,6 +19,28 @@ func doCliUpdate(toolchain string) error {
 		if err != nil {
 			continue
 		}
+	}
+
+	return nil
+}
+
+func doCliUpdate(pkg, toolchain string) error {
+	// package.yaml 文件解析
+	lpm := GetLocalPackageManager()
+	info, err := lpm.GetDependencyInfo(pkg)
+	if err != nil {
+		return err
+	}
+
+	// 下载并构建依赖包
+	err = doCliDownload(pkg, info.Version)
+	if err != nil {
+		return err
+	}
+
+	err = doCliBuild(pkg, toolchain)
+	if err != nil {
+		return err
 	}
 
 	return nil
