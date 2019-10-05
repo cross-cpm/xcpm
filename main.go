@@ -25,6 +25,7 @@ func main() {
 		cmd  string
 		arg2 string
 		arg3 string
+		arg4 string
 	)
 
 	if len(os.Args) > 1 {
@@ -39,18 +40,26 @@ func main() {
 		arg3 = os.Args[3]
 	}
 
+	if len(os.Args) > 4 {
+		arg4 = os.Args[4]
+	}
+
 	switch cmd {
 	case "download":
 		err = doCliDownload(arg2, arg3)
 	case "build":
 		toolchain := ""
 		err = doCliBuild(arg2, toolchain)
-	case "update":
+	case "install":
 		toolchain := ""
 		if arg3 != "" {
-			err = doCliUpdate(arg3, toolchain)
+			if arg4 != "" {
+				// 更新 package.yaml 描述文件，并安装软件包
+			} else {
+				err = doCliInstall(arg3, toolchain)
+			}
 		} else {
-			err = doCliUpdateAll(toolchain)
+			err = doCliInstallAll(toolchain)
 		}
 	default:
 		dumpUsage()

@@ -5,9 +5,9 @@ xcpm is a c/c++ packages management for cross-building.
 ## Qiuck Start
 
 ```shell
-xcpm init
+xcpm install [-t <toolchain>]
 ```
 
 ```shell
-xcpm update <name>
+xcpm install <name> [-t <toolchain>]
 ```

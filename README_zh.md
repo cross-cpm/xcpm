@@ -4,17 +4,19 @@
 
 ## 快速开始
 
-安装软件包，并更新 package.yaml 文件
+安装 package.yaml 定义的所有依赖软件包
 
 ```shell
-xcpm install <name> <version> [-t <toolchain>]
+xcpm install [-t <toolchain>]
 ```
 
-更新 package.yaml 定义的依赖软件包
+安装单个依赖软件包
 
 ```shell
-xcpm update [-t <toolchain>]
+xcpm install <name> [-t <toolchain>]
 ```
+
+## 常用命令
 
 下载软件包源码
 
@@ -27,3 +29,16 @@ xcpm download <name> <version>
 ```shell
 xcpm build <name> [-t <toolchain>]
 ```
+
+安装软件包，并更新 package.yaml 文件
+
+```shell
+xcpm install <name> <version> [-t <toolchain>]
+```
+
+更新软件包数据仓库
+
+```shell
+xcpm update
+```
+
