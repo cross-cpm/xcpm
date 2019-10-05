@@ -60,7 +60,7 @@ func (d *packageTarDownloader) getPackagePath(version string) (string, error) {
 		return "", err
 	}
 
-	cache_path := fmt.Sprintf("%s/.xcpm/cache/%s%s", home, u.Host, u.Path)
+	cache_path := fmt.Sprintf("%s/%s/%s%s", home, GLOBAL_CACHE_PATH, u.Host, u.Path)
 	log.Println("cache path:", cache_path)
 	return cache_path, nil
 }

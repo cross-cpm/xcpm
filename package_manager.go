@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"path/filepath"
 )
 
 type PackageInfo struct {
@@ -41,13 +42,22 @@ func NewPackageManager(name string) *packageManager {
 }
 
 func findPackageLibFile(name string) (string, error) {
-	filename := fmt.Sprintf("packages/%s.yaml", name)
+	filename := filepath.Join("packages", name+"%s.yaml")
 	log.Println("filename:", filename)
 	if FileExist(filename) {
 		return filename, nil
 	}
 
-	// TODO: find in global packages lib
+	home, err := Home()
+	if err != nil {
+		return "", err
+	}
+
+	// find in global packages lib
+	global_filename := filepath.Join(home, GLOBAL_PACKAGE_LIBS_PATH, name+".yaml")
+	if FileExist(global_filename) {
+		return global_filename, nil
+	}
 
 	return "", fmt.Errorf("package(%s) lib file not found!", name)
 }

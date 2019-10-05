@@ -52,7 +52,7 @@ func (d *packageGitDownloader) getPackagePath(version string) (string, error) {
 		return "", err
 	}
 
-	cache_path := fmt.Sprintf("%s/.xcpm/cache/%s%s/%s/", home, u.Host, u.Path, version)
+	cache_path := fmt.Sprintf("%s/%s/%s%s/%s/", home, GLOBAL_CACHE_PATH, u.Host, u.Path, version)
 	log.Println("cache path:", cache_path)
 	return cache_path, nil
 }

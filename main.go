@@ -11,7 +11,7 @@ func dumpUsage() {
 
 commands:
    init       create packae file
-   update     update dependency
+   update     update global package descriptions
 
 For additional information, see https://github.com/cross-cpm/xcpm.git
 `)
@@ -61,6 +61,8 @@ func main() {
 		} else {
 			err = doCliInstallAll(toolchain)
 		}
+	case "update":
+		doCliUpdate()
 	default:
 		dumpUsage()
 	}
