@@ -12,6 +12,8 @@ func NewPackageBuilder(pkgName string, toolchain string, bi []PackageBuildInfo) 
 
 	if info.Type == "cmake" {
 		return NewPackageCMakeBuiler(pkgName, toolchain, info)
+	} else if info.Type == "autoconf" {
+		return NewPackageAutoconfBuilder(pkgName, toolchain, info)
 	}
 
 	return nil

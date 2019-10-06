@@ -15,9 +15,9 @@ type packageTarDownloader struct {
 }
 
 func NewPackageTarDownloader(source *PackageSourceInfo) *packageTarDownloader {
-	log.Println("source repo:", source.Pack)
+	log.Println("source repo:", source.Url)
 	return &packageTarDownloader{
-		url: source.Pack,
+		url: source.Url,
 	}
 }
 

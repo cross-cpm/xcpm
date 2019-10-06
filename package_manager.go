@@ -19,7 +19,7 @@ type PackageBuildInfo struct {
 type PackageSourceInfo struct {
 	Version string `yaml:"version"`
 	Git     string `yaml:"git"`
-	Pack    string `yaml:"pack"`
+	Url     string `yaml:"url"`
 }
 
 type packageManager struct {
@@ -42,7 +42,7 @@ func NewPackageManager(name string) *packageManager {
 }
 
 func findPackageLibFile(name string) (string, error) {
-	filename := filepath.Join("packages", name+"%s.yaml")
+	filename := filepath.Join("packages", name+".yaml")
 	log.Println("filename:", filename)
 	if FileExist(filename) {
 		return filename, nil

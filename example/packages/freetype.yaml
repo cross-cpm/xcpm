@@ -1,0 +1,11 @@
+# 来源
+source:
+  -
+    url: http://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.gz
+    version: 2.9
+
+# 构建命令
+build:
+  -
+    type: autoconf
+

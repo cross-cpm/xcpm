@@ -16,7 +16,7 @@ func NewPackageDownloader(source *PackageSourceInfo) PackageDownloader {
 	log.Println("package source", source)
 	if source.Git != "" {
 		return NewPackageGitDownloader(source)
-	} else if source.Pack != "" {
+	} else if source.Url != "" {
 		return NewPackageTarDownloader(source)
 	}
 
