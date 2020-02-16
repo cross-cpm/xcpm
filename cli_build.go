@@ -62,6 +62,7 @@ func doCliBuild(pkgName, toolchain string) error {
 		return err
 	}
 
+	//log.Println("bi:", bi)
 	pb := NewPackageBuilder(pkgName, toolchain, bi)
 	buildPath, err := pb.GetPath()
 
@@ -73,6 +74,7 @@ func doCliBuild(pkgName, toolchain string) error {
 		return err
 	}
 
+	//log.Println("&pb", &pb)
 	// 编译、安装
 	err = pb.Build()
 	if err != nil {

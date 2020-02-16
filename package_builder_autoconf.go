@@ -13,8 +13,8 @@ type packageAutoConfBuiler struct {
 	buildInfo *PackageBuildInfo
 }
 
-func NewPackageAutoconfBuilder(pkgName string, toolchain string, bi *PackageBuildInfo) *packageCMakeBuiler {
-	return &packageCMakeBuiler{
+func NewPackageAutoconfBuilder(pkgName string, toolchain string, bi *PackageBuildInfo) *packageAutoConfBuiler {
+	return &packageAutoConfBuiler{
 		pkgName:   pkgName,
 		toolchain: toolchain,
 		buildInfo: bi,
