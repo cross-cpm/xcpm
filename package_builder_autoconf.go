@@ -54,14 +54,13 @@ func (b *packageAutoConfBuiler) Build() error {
 	s.SetDir(workdir)
 	s.SetEnv("PREFIX_ROOT", prefix)
 
-	config := make([]interface{}, 0)
-	config = append(config, "./configure")
-	config = append(config, fmt.Sprintf("--prefix='%s'", prefix))
+	configs := make([]interface{}, 0)
+	configs = append(configs, "./configure")
+	configs = append(configs, fmt.Sprintf("--prefix=%s", prefix))
 	for _, v := range b.buildInfo.Configure {
-		config = append(config, v)
+		configs = append(configs, v)
 	}
-	s.Call("sh", config...)
-
+	s.Call("sh", configs...)
 	s.Call("make")
 	s.Call("make", "install")
 
