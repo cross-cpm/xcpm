@@ -1,0 +1,14 @@
+# 来源
+source:
+  -
+    git: https://github.com/HalfBagOrange/mp4v2.git
+
+# 构建命令
+build:
+  -
+    type: autoconf
+    configure:
+      - --disable-util
+      - --enable-shared=no
+      - --build=arm --host=arm
+

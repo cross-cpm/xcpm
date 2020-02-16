@@ -53,7 +53,15 @@ func (b *packageAutoConfBuiler) Build() error {
 	s.ShowCMD = true
 	s.SetDir(workdir)
 	s.SetEnv("PREFIX_ROOT", prefix)
-	s.Call("configure", fmt.Sprintf("--prefix='%s'", prefix))
+
+	config := make([]interface{}, 0)
+	config = append(config, "./configure")
+	config = append(config, fmt.Sprintf("--prefix='%s'", prefix))
+	for _, v := range b.buildInfo.Configure {
+		config = append(config, v)
+	}
+	s.Call("sh", config...)
+
 	s.Call("make")
 	s.Call("make", "install")
 
